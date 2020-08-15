@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import { Header } from "./containers/header";
-import { AddTaskButton } from "./containers/addTaskButton";
+import { Header } from "./components/header";
+import { AddTaskButton } from "./components/addTaskButton";
 
 
 
