@@ -3,6 +3,31 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux'
+
+
+
+export const addTask = (title, description) => {
+  return {
+    type: "addTask",
+    title,
+    description
+  }
+}
+
+const reducer = (state = [], action) => {
+  switch(action.type) {
+    case "addTask":
+      return {
+        title: action.title,
+        description: action.description
+      };
+  }
+}
+
+export let store = createStore(reducer);
+
+store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
   <React.StrictMode>
