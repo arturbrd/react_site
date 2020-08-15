@@ -37,7 +37,7 @@ export class AddTaskButton extends React.Component {
 
     render() {
         return ( 
-        <div style={style}>
+        <div>
                 <laber for="taskName">Task name</laber>
                 <br />
                 <input type="text" id="taskName" value={this.state.taskName} onChange={this.handleNameChange}/>

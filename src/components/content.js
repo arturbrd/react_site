@@ -1,5 +1,5 @@
 import React from 'react';
-import AddTaskButton from "./containers/addTaskButton";
+import AddTaskButton from "./components/addTaskButton";
 
 const style = {
     backroundColor: "brown",
