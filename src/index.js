@@ -18,10 +18,12 @@ export const addTask = (title, description) => {
 const reducer = (state = [], action) => {
   switch(action.type) {
     case "addTask":
-      return {
+      const newState = state;
+      newState.push({
         title: action.title,
         description: action.description
-      };
+      });
+      return newState;
   }
 }
 
