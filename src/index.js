@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux'
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { connect } from './components/taskList';
 
 
 
@@ -27,16 +29,29 @@ const reducer = (state = [], action) => {
   }
 }
 
-export let store = createStore(reducer);
+export let store = createStore(reducer, +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
   <React.StrictMode>
+  <Provider store={store}>
     <App />
+  </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+setTimeout(() => {
+  console.log("The time has came")
+  ReactDOM.render(
+  <React.StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);}, 10000 )
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
