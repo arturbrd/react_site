@@ -1,18 +1,17 @@
 import React from 'react';
-import { store } from "../index.js";
-import { getState } from "redux";
-import { connect } from "react-redux";
+//import { store } from "../index.js";
+import { connect } from 'react-redux';
 
 const taskStyle = {
     backgroundColor: "orange",
     padding: 12
 }
 
-export class TaskList extends React.Component {
+class TaskList extends React.Component {
     render() {
         let renderTasks = [];
-        for (let i = 0; i < this.props.tasks.length; i++) {
-            renderTasks.push(<Task data={this.props.tasks[i]} />);
+        for (let i = 0; i < this.props.tasksArray.length; i++) {
+            renderTasks.push(<Task data={this.props.tasksArray[i]} key={i} nr={i + 1} />);
         };
         return (
             <div>{renderTasks}</div>
@@ -22,24 +21,17 @@ export class TaskList extends React.Component {
 class Task extends React.Component {
     render() {
         return (<div style={taskStyle}>
-            <h3>{this.props.data.title}</h3>
+            <h3>{this.props.nr}. {this.props.data.title}</h3>
             <br />
             <p>{this.props.data.description}</p>
         </div>);
     }
 }
 
-const mapStateToProps = function(state) {
-    let array = [];
-    for (let i = 0; i < state.length; i++) {
-        array.push({
-            title: state[i].title,
-            description: state[i].description
-        })
-    };
+const mapStateToProps = (state) => {
     return {
-        tasks: array
-    };
+        tasksArray: state.tasksArray
+    }
 }
 
 export default connect(mapStateToProps)(TaskList);
