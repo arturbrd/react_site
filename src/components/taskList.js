@@ -1,9 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const taskStyle = {
-    backgroundColor: "orange",
+const taskListStyle = {
+    backgroundColor: "yellow",
     padding: 12
+}
+
+const taskStyle = {
+    backgroundColor: "orange"
 }
 
 class TaskList extends React.Component {
@@ -13,7 +17,7 @@ class TaskList extends React.Component {
             renderTasks.push(<Task data={this.props.tasksArray[i]} key={i} nr={i + 1} />);
         };
         return (
-            <div>{renderTasks}</div>
+            <div style={taskListStyle}>{renderTasks}</div>
         );
     }
 }

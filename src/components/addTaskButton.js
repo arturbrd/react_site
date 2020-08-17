@@ -1,8 +1,9 @@
 import React from 'react';
-import { store, addTask } from '../index.js'
+import { connect } from 'react-redux';
+import { addTask } from '../index'
 //import { dispatch } from 'redux';
 
-export class AddTaskButton extends React.Component {
+class AddTaskButton extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -23,7 +24,7 @@ export class AddTaskButton extends React.Component {
     }
 
     handleClick(event) {
-        store.dispatch(addTask(this.state.taskName, this.state.taskDescription));
+        this.props.addTask(this.state.taskName, this.state.taskDescription);
 
         this.setState({
             taskName: '',
@@ -46,3 +47,11 @@ export class AddTaskButton extends React.Component {
         </div>);
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addTask: (name, description) => { dispatch(addTask(name, description)); }
+    };
+}
+
+export default connect(null, mapDispatchToProps)(AddTaskButton);
