@@ -1,5 +1,4 @@
 import React from 'react';
-//import { store } from "../index.js";
 import { connect } from 'react-redux';
 
 const taskStyle = {

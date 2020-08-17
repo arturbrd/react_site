@@ -1,5 +1,4 @@
 const initState = {
-    control: "test",
     tasksArray: []
 }
 
