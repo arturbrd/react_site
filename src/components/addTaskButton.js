@@ -2,10 +2,6 @@ import React from 'react';
 import { store, addTask } from '../index.js'
 //import { dispatch } from 'redux';
 
-const style = {
-    align: "left"
-}
-
 export class AddTaskButton extends React.Component {
     constructor(props) {
         super(props)

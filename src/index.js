@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux'
-
-
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from "./reducers/rootReducer"
 
 export const addTask = (title, description) => {
   return {
@@ -15,25 +15,15 @@ export const addTask = (title, description) => {
   }
 }
 
-const reducer = (state = [], action) => {
-  switch(action.type) {
-    case "addTask":
-      const newState = state;
-      newState.push({
-        title: action.title,
-        description: action.description
-      });
-      return newState;
-  }
-}
-
-export let store = createStore(reducer);
+export let store = createStore(rootReducer);
 
 store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
   <React.StrictMode>
+  <Provider store={store}>
     <App />
+  </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
