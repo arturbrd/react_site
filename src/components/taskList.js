@@ -1,33 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Task from "./task"
 
 const taskListStyle = {
     backgroundColor: "yellow",
     padding: 12
 }
 
-const taskStyle = {
-    backgroundColor: "orange"
-}
-
 class TaskList extends React.Component {
     render() {
         let renderTasks = [];
         for (let i = 0; i < this.props.tasksArray.length; i++) {
-            renderTasks.push(<Task data={this.props.tasksArray[i]} key={i} nr={i + 1} />);
+            renderTasks.push(<Task data={this.props.tasksArray[i]} key={i} nr={i + 1} taskId={this.props.tasksArray[i].ID} isDone={this.props.tasksArray[i].isDone}/>);
         };
         return (
             <div style={taskListStyle}>{renderTasks}</div>
         );
-    }
-}
-class Task extends React.Component {
-    render() {
-        return (<div style={taskStyle}>
-            <h3>{this.props.nr}. {this.props.data.title}</h3>
-            <br />
-            <p>{this.props.data.description}</p>
-        </div>);
     }
 }
 

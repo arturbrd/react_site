@@ -7,11 +7,30 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from "./reducers/rootReducer"
 
+let tasksID = 0;
+
 export const addTask = (title, description) => {
+  tasksID++;
   return {
     type: "addTask",
+    ID: tasksID,
     title,
-    description
+    description,
+    isDone: false
+  }
+}
+
+export const changeToDone = (ID) => {
+  return {
+    type: "changeToDone",
+    ID: ID
+  }
+}
+
+export const deleteTask = (ID) => {
+  return {
+    type: "deleteTask",
+    ID: ID
   }
 }
 
