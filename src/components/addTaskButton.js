@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addTask } from '../index'
-//import { dispatch } from 'redux';
 
 class AddTaskButton extends React.Component {
     constructor(props) {

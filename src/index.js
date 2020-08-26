@@ -21,6 +21,7 @@ export const addTask = (title, description) => {
 }
 
 export const changeToDone = (ID) => {
+  console.log("funkcja ustwiania na done została zdispatchowana");
   return {
     type: "changeToDone",
     ID: ID
@@ -28,6 +29,7 @@ export const changeToDone = (ID) => {
 }
 
 export const deleteTask = (ID) => {
+  console.log("funkcja usuwania została zdispatchowana");
   return {
     type: "deleteTask",
     ID: ID
