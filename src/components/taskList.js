@@ -37,7 +37,7 @@ class TaskList extends React.Component {
         return (
             <div style={taskListStyle}>
                 <div>
-                    <h3>You have {this.props.length} {this.props.length === 0 || this.props.length === 1 ? "task." : "tasks."}</h3>
+                    <h3>You have {this.props.length} {this.props.length === 1 ? "task." : "tasks."}</h3>
                     <h3>{this.props.numberOfDone} of them {this.props.numberOfDone === 1 ? "is" : "are"} done.</h3>
                 </div>
                 {renderTasks}
